@@ -23,10 +23,23 @@
         android:id="@+id/detailsFragment"
         android:name="com.use.api_do_imdb.fragments.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="sinopse"
+            app:argType="string" />
+        <argument
+            android:name="poster"
+            app:argType="string" />
+        <argument
+            android:name="nome_filme"
+            app:argType="string" />
+        <argument
+            android:name="elenco"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/seeMoreFragment"
-        android:name="com.use.api_do_imdb.SeeMoreFragment"
+        android:name="com.use.api_do_imdb.fragments.SeeMoreFragment"
         android:label="fragment_see_more"
         tools:layout="@layout/fragment_see_more" />
 </navigation>

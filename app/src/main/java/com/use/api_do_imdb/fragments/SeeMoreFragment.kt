@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.use.api_do_imdb.MovieAdapter
 import com.use.api_do_imdb.R
 import com.use.api_do_imdb.api.MovieApiInterface
@@ -41,19 +42,22 @@ class SeeMoreFragment : Fragment() {
         }
 
 
+
     }
 
     private fun getMovieData(callback: (List<Movie>) -> Unit) {
-        val apiService = MovieApiService.getInstance().create(MovieApiInterface::class.java)
+        val apiService =
+            MovieApiService.getInstance().create(MovieApiInterface::class.java)
         apiService.getMovieList().enqueue(
             object : Callback<MovieResponse> {
                 override fun onResponse(
                     call: Call<MovieResponse>,
                     response: Response<MovieResponse>
                 ) {
-                    return response.body()?.MOVIES_LISTA?.let { callback(it) } ?: callback(
-                        listOf()
-                    )
+                    return response.body()?.MOVIES_LISTA?.let { callback(it) }
+                        ?: callback(
+                            listOf()
+                        )
                 }
 
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {

@@ -6,6 +6,7 @@ import retrofit2.http.GET
 
 interface MovieApiInterface {
 
-    @GET("API/ComingSoon/k_caojwirh")
+    @GET("API/ComingSoon/k_6a9w2gjz")
     fun getMovieList(): Call<MovieResponse>
+
 }

@@ -1,5 +1,7 @@
 package com.use.api_do_imdb
 
+import android.util.TypedValue
+import android.util.TypedValue.*
 import com.use.api_do_imdb.models.Movie
 import android.view.LayoutInflater
 import android.view.View

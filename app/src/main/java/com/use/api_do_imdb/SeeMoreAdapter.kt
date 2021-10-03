@@ -9,6 +9,7 @@ import com.use.api_do_imdb.models.Movie
 import kotlinx.android.synthetic.main.item_see_more.view.*
 
 class SeeMoreAdapter(
+
     private val movies: List<Movie>
 ) : RecyclerView.Adapter<SeeMoreAdapter.SeeMoreViewHolder>() {
 
@@ -16,12 +17,14 @@ class SeeMoreAdapter(
 
         // QUARTO
         fun bindMovie(movie: Movie) {
-            itemView.texto_completo_seeMore.text = movie.title
+
+            (itemView).texto_completo_seeMore.text = movie.title
             Glide
                 .with(itemView)
                 .load(movie.poster)
                 .centerCrop()
                 .into(itemView.poster_filme_seeMore)
+
         }
     }
 

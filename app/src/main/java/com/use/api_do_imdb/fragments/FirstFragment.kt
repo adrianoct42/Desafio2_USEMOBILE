@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.use.api_do_imdb.MovieAdapter
 import com.use.api_do_imdb.R
 import com.use.api_do_imdb.api.MovieApiInterface
@@ -16,6 +18,7 @@ import com.use.api_do_imdb.models.Movie
 import com.use.api_do_imdb.models.MovieResponse
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.fragment_first.view.*
 import kotlinx.android.synthetic.main.fragment_see_more.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,6 +28,7 @@ class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
     private lateinit var imageButton: ImageButton
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,24 +49,56 @@ class FirstFragment : Fragment() {
         }
 
         getMovieData { movies: List<Movie> ->
-            recycle_forYou.adapter = MovieAdapter(movies.take(5)) {
+            recycle_forYou.adapter = MovieAdapter(movies.take(4)) {
                 findNavController().navigate(
-                    FirstFragmentDirections.actionFirstFragmentToDetailsFragment()
+                    FirstFragmentDirections.actionFirstFragmentToDetailsFragment(it.plot, it.poster, it.fullTitle, it.actors)
                 )
             }
         }
         getMovieData { movies: List<Movie> ->
-            recycle_action.adapter = MovieAdapter(movies.take(5)) {
+            recycle_action.adapter = MovieAdapter(movies.take(4)) {
                 findNavController().navigate(
-                    FirstFragmentDirections.actionFirstFragmentToDetailsFragment()
+                    FirstFragmentDirections.actionFirstFragmentToDetailsFragment(it.plot, it.poster, it.fullTitle, it.actors)
                 )
             }
         }
         getMovieData { movies: List<Movie> ->
-            recycle_drama.adapter = MovieAdapter(movies.take(5)) {
+            recycle_drama.adapter = MovieAdapter(movies.take(4)) {
                 findNavController().navigate(
-                    FirstFragmentDirections.actionFirstFragmentToDetailsFragment()
+                    FirstFragmentDirections.actionFirstFragmentToDetailsFragment(it.plot, it.poster, it.fullTitle, it.actors)
                 )
+            }
+        }
+
+        // FRAGMENT SEE MORE
+
+        binding.verMaisBtnForYou.setOnClickListener {
+            getMovieData { movies: List<Movie> ->
+                recycle_seeMore.adapter = MovieAdapter(movies) {
+                    findNavController().navigate(
+                        FirstFragmentDirections.actionFirstFragmentToSeeMoreFragment()
+                    )
+                }
+            }
+        }
+
+        binding.verMaisBtnAcao.setOnClickListener {
+            getMovieData { movies: List<Movie> ->
+                recycle_seeMore.adapter = MovieAdapter(movies) {
+                    findNavController().navigate(
+                        FirstFragmentDirections.actionFirstFragmentToSeeMoreFragment()
+                    )
+                }
+            }
+        }
+
+        binding.verMaisBtnDrama.setOnClickListener {
+            getMovieData { movies: List<Movie> ->
+                recycle_seeMore.adapter = MovieAdapter(movies) {
+                    findNavController().navigate(
+                        FirstFragmentDirections.actionFirstFragmentToSeeMoreFragment()
+                    )
+                }
             }
         }
 

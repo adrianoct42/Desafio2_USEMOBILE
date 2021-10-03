@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/grey">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
-            android:text="SINOPSE"
+            android:layout_marginTop="30dp"
+            android:text="Sinopse"
             android:textSize="24sp"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,11 +46,12 @@
 
         <TextView
             android:id="@+id/texto_da_sinopse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sinopse" />
 
@@ -58,18 +60,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="120dp"
-            android:text="Elenco"
+            android:layout_marginTop="20dp"
+            android:text="Elenco Principal"
             android:textSize="24sp"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sinopse" />
+            app:layout_constraintTop_toBottomOf="@+id/texto_da_sinopse" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
             android:id="@+id/elenco_atores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/elenco" />
