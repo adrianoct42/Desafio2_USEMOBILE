@@ -1,3 +1,2 @@
 # Desafio2_USEMOBILE
-Infelizmente, o desafio se mostrou maior que minha capacidade atual de implementá-lo com notoriedade...
-Peço desculpas ao pessoal do bootcamp, sempre muito solícitos das minhas inúmeras dúvidas, dei o meu melhor.
+O segundo desafio tratava-se de utilizar a API do IMDB para construir um app que mostrasse um catálogo de filmes. Consegui fazer uma parte considerável, mas alguams implementações ficaram de fora, infelizmente.
